@@ -1,0 +1,55 @@
+<html>
+<head>
+<script src="brython.js"></script>
+<script src="brython_stdlib.js"></script>
+<script type="text/python">
+from browser import document, html, alert
+
+def display(text):
+	document["display"].clear()
+	document["display"].html = text
+
+#---------------------------------
+
+import random
+
+cartes_ordre = ["C1", "CR", "CD", "CV", "CX", "C9", "C8", "C7", "K1", "KR", "KD", "KV", "KX", "K9", "K8", "K7", "P1", "PR", "PD", "PV", "PX", "P9", "P8", "P7", "T1", "TR", "TD", "TV", "TX", "T9", "T8", "T7"]
+
+#cartes = ["C1", "CR", "CD", "CV", "CX", "C9", "C8", "C7", "K1", "KR", "KD", "KV", "KX", "K9", "K8", "K7", "P1", "PR", "PD", "PV", "PX", "P9", "P8", "P7", "T1", "TR", "TD", "TV", "TX", "T9", "T8", "T7"]
+cartes = ["C1", "CR", "CD", "CV"]
+random.shuffle(cartes)
+
+# on affiche la premiere cartes
+display("<img src='" + cartes[0] + ".png' width='400' />")
+
+n = 1
+
+def cartes_obo():
+	global cartes, n
+	display("<img src='" + cartes[n] + ".png' width='400' />")
+	if n == 3:
+		cartes_all()
+	n = n + 1
+
+def cartes_all():
+	global cartes_ordre
+	cartes_all = ""
+	for i in range(len(cartes_ordre)):
+		cartes_all = cartes_all + "<span id='carte'><img src='" + cartes_ordre[i] + ".png' width='100' /></span>"
+	display(cartes_all)
+
+def cartetest():
+	alert('xxx')
+
+document['display'].bind('click',cartes_obo)
+document['carte'].bind('click',cartetest)
+</script>
+</head>
+
+<body onload="brython()">
+
+<div id="display"></div>
+<div id="carte"></div>
+
+</body>
+</html>
