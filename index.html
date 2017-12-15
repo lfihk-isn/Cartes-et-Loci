@@ -9,6 +9,9 @@ def display(text):
 	document["display"].clear()
 	document["display"].html = text
 
+def display2(id, text):
+	document[id].html = document[id].html + text
+
 #---------------------------------
 
 import random
@@ -27,18 +30,21 @@ def cartes_obo():
 	n = n + 1
 	if n == 7:
 		document['cartes'].style.display = 'inline'
+		document['display'].style.display = 'none'
 
 i = 0
 select = ''
 def cartes_select(ev):
 	global i, select
-	select = select + str(ev.target.id)
-	ev.target.style.opacity = '0.5'
+	select = select + str(ev.target.dataid)
+	ev.target.style.opacity = '0.2'
 	ev.target.style.cursor = 'not-allowed';
-	ev.target.style['pointer-events'] = 'none'
+	#ev.target.src = 'C1.png';
+	#display2(ev.target.dataid, '<div style="position:absolute">' + str(i) + '</div>')
+	document[ev.target.dataid + '_pos'].html = "<img src='" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />"
 	i = i + 1
-	if i == 3:
-		alert(select)
+	document["select"].html = select
+
 
 document['display'].bind('click',cartes_obo)
 document['cartes'].bind('click',cartes_select)
@@ -50,15 +56,17 @@ document['cartes'].bind('click',cartes_select)
 <div id="display" style="display:inline"></div>
 
 <div id="cartes" style="display:none">
-	<img id='C1' dataid='C1' src='C1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />
-	<img id='CR' dataid='CR' src='CR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />
-	<img id='CD' dataid='CR' src='CD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />
-	<img id='CV' dataid='CR' src='CV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />
-	<img id='CX' dataid='CR' src='CX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />
-	<img id='C9' dataid='CR' src='C9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />
-	<img id='C8' dataid='CR' src='C8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />
-	<img id='C7' dataid='CR' src='C7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />
+	<div id='C1' style='float:left;'><div id='C1_pos' style='position:absolute;'></div><img dataid='C1' src='C1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+	<div id='CR' style='float:left;'><div id='CR_pos' style='position:absolute;'></div><img dataid='CR' src='CR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+	<div id='CD' style='float:left;'><div id='CD_pos' style='position:absolute;'></div><img dataid='CD' src='CD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+	<div id='CV' style='float:left;'><div id='CV_pos' style='position:absolute;'></div><img dataid='CV' src='CV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+	<div id='CX' style='float:left;'><div id='CX_pos' style='position:absolute;'></div><img dataid='CX' src='CX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+	<div id='C9' style='float:left;'><div id='C9_pos' style='position:absolute;'></div><img dataid='C9' src='C9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+	<div id='C8' style='float:left;'><div id='C8_pos' style='position:absolute;'></div><img dataid='C8' src='C8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+	<div id='C7' style='float:left;'><div id='C7_pos' style='position:absolute;'></div><img dataid='C7' src='C7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
 </div>
+
+<div id="select" style='clear:both'></div>
 
 </body>
 </html>
