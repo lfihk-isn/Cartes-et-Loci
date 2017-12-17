@@ -33,17 +33,26 @@ def cartes_obo():
 		document['display'].style.display = 'none'
 
 i = 0
-select = ''
+selected = []
 def cartes_select(ev):
 	global i, select
-	select = select + str(ev.target.dataid)
-	ev.target.style.opacity = '0.2'
-	ev.target.style.cursor = 'not-allowed';
-	#ev.target.src = 'C1.png';
-	#display2(ev.target.dataid, '<div style="position:absolute">' + str(i) + '</div>')
-	document[ev.target.dataid + '_pos'].html = "<img src='" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />"
-	i = i + 1
-	document["select"].html = select
+	if i != 0 and (str(ev.target.dataid) == selected[-1]):
+		#unselect the last selection
+		document[ev.target.dataid + '_pos'].clear()
+		ev.target.style.opacity = '1'
+		ev.target.style.cursor = 'pointer'
+		del selected[-1]
+		i = i - 1
+	else:
+		if str(ev.target.dataid) not in selected:
+			selected.append(str(ev.target.dataid))
+			i = i + 1
+			document[ev.target.dataid + '_pos'].html = "<img src='" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' />"
+			ev.target.style.opacity = '0.2'
+			ev.target.style.cursor = 'not-allowed'
+
+
+	document["select"].html = selected[-1]
 
 
 document['display'].bind('click',cartes_obo)
