@@ -19,18 +19,21 @@ import random
 cartes = ["C1", "CR", "CD", "CV", "CX", "C9", "C8", "C7"]
 random.shuffle(cartes)
 
+#for n2 in range(0,len(cartes)):
+#	document["score"].html = document["score"].html + cartes[n2]
+
 # on affiche la premiere cartes
 display("<img src='" + cartes[0] + ".png' width='400' />")
 
-n = 1
-
+n = 0
 def cartes_obo():
 	global cartes, n
-	display("<img src='" + cartes[n] + ".png' width='400' />")
 	n = n + 1
-	if n == 7:
+	if n == 8:
 		document['cartes'].style.display = 'inline'
 		document['display'].style.display = 'none'
+	else:
+		display("<img src='" + cartes[n] + ".png' width='400' />")
 
 i = 0
 selected = []
@@ -54,9 +57,27 @@ def cartes_select(ev):
 
 	document["select"].html = selected[-1]
 
+def score():
+	global selected, cartes
+	for n1 in range(0,len(selected)):
+		document["score"].html = document["score"].html + selected[n1]
+
+	document["score"].html = document["score"].html + '<br />'
+
+	for n2 in range(0,len(cartes)):
+		document["score"].html = document["score"].html + cartes[n2]
+
+	points = 0
+	for n3 in range(0,len(cartes)):
+		if selected[n3] == cartes[n3]:
+			points = points + 1
+
+	document["score"].html = document["score"].html + '<br />'
+	document["score"].html = document["score"].html + str(points)
 
 document['display'].bind('click',cartes_obo)
 document['cartes'].bind('click',cartes_select)
+document['submit'].bind('click',score)
 </script>
 </head>
 
@@ -76,6 +97,9 @@ document['cartes'].bind('click',cartes_select)
 </div>
 
 <div id="select" style='clear:both'></div>
+<div id="score" style='clear:both'></div>
+
+<button id="submit" style='clear:both'>validate</div>
 
 </body>
 </html>
