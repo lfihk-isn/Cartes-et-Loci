@@ -92,7 +92,11 @@ document['submit'].bind('click',score)
 
 <body onload="brython()">
 
+	<div style="width:400px;">
 	<div id="display" style="display:inline"></div>
+	<div id="button_left" style="width:20px;position:relative;bottom:10px;left:10px;"><a class="waves-effect waves-light btn"><i class="material-icons">keyboard_arrow_left</i></a></div>
+	<div id="button_right" style="width:20px;position:relative;bottom:10px;right:10px;"><a class="waves-effect waves-light btn"><i class="material-icons">keyboard_arrow_right</i></a></div>
+	</div>
 
 	<div id="cartes" style="display:none">
 		<div id='C1' style='float:left;'><div id='C1_pos' style='position:absolute;'></div><img dataid='C1' src='C1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
@@ -108,7 +112,7 @@ document['submit'].bind('click',score)
 	<div id="select" style='clear:both'></div>
 	<div id="score" style='clear:both'></div>
 
-	<button id="submit" style='clear:both'>validate</div>
+	<a id="submit" class="waves-effect waves-light btn"><i class="material-icons">check</i></a>
 
 	<div class="fixed-action-btn">
 	<a class="btn-floating btn-large red">
