@@ -1,7 +1,10 @@
 <html>
 <head>
-<script src="brython.js"></script>
-<script src="brython_stdlib.js"></script>
+<!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	  <script src="brython.js"></script>
+	  <script src="brython_stdlib.js"></script>
+
 <script type="text/python">
 from browser import document, html, alert
 
@@ -83,23 +86,38 @@ document['submit'].bind('click',score)
 
 <body onload="brython()">
 
-<div id="display" style="display:inline"></div>
+	<div id="display" style="display:inline"></div>
 
-<div id="cartes" style="display:none">
-	<div id='C1' style='float:left;'><div id='C1_pos' style='position:absolute;'></div><img dataid='C1' src='C1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
-	<div id='CR' style='float:left;'><div id='CR_pos' style='position:absolute;'></div><img dataid='CR' src='CR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
-	<div id='CD' style='float:left;'><div id='CD_pos' style='position:absolute;'></div><img dataid='CD' src='CD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
-	<div id='CV' style='float:left;'><div id='CV_pos' style='position:absolute;'></div><img dataid='CV' src='CV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
-	<div id='CX' style='float:left;'><div id='CX_pos' style='position:absolute;'></div><img dataid='CX' src='CX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
-	<div id='C9' style='float:left;'><div id='C9_pos' style='position:absolute;'></div><img dataid='C9' src='C9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
-	<div id='C8' style='float:left;'><div id='C8_pos' style='position:absolute;'></div><img dataid='C8' src='C8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
-	<div id='C7' style='float:left;'><div id='C7_pos' style='position:absolute;'></div><img dataid='C7' src='C7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
-</div>
+	<div id="cartes" style="display:none">
+		<div id='C1' style='float:left;'><div id='C1_pos' style='position:absolute;'></div><img dataid='C1' src='C1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+		<div id='CR' style='float:left;'><div id='CR_pos' style='position:absolute;'></div><img dataid='CR' src='CR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+		<div id='CD' style='float:left;'><div id='CD_pos' style='position:absolute;'></div><img dataid='CD' src='CD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+		<div id='CV' style='float:left;'><div id='CV_pos' style='position:absolute;'></div><img dataid='CV' src='CV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+		<div id='CX' style='float:left;'><div id='CX_pos' style='position:absolute;'></div><img dataid='CX' src='CX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+		<div id='C9' style='float:left;'><div id='C9_pos' style='position:absolute;'></div><img dataid='C9' src='C9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+		<div id='C8' style='float:left;'><div id='C8_pos' style='position:absolute;'></div><img dataid='C8' src='C8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+		<div id='C7' style='float:left;'><div id='C7_pos' style='position:absolute;'></div><img dataid='C7' src='C7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100' /></div>
+	</div>
 
-<div id="select" style='clear:both'></div>
-<div id="score" style='clear:both'></div>
+	<div id="select" style='clear:both'></div>
+	<div id="score" style='clear:both'></div>
 
-<button id="submit" style='clear:both'>validate</div>
+	<button id="submit" style='clear:both'>validate</div>
 
+	<div class="fixed-action-btn">
+	<a class="btn-floating btn-large red">
+	<i class="large material-icons">mode_edit</i>
+	</a>
+	<ul>
+	<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+	<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+	<li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+	<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+	</ul>
+	</div>
+
+	<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 </html>
