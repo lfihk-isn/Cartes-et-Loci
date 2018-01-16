@@ -18,31 +18,29 @@ import random
 
 
 def display1(text):
-	document["display"].clear()
-	document["display"].html = text
+  	document["display"].clear()
+  	document["display"].html = text
 
 
 def display2(id, text):
-	document[id].html = document[id].html + text
+  	document[id].html = document[id].html + text
 
 
 n = 0
 def cartes_obo():
-	global cartes, n
-	n = n + 1
-	if n == 8:
-		document['cartes'].style.display = 'inline'
-		document['display'].style.display = 'none'
-    document['button_left'].style.display = 'none'
-		document['button_right'].style.display = 'none'
-	else:
-		display1("<img src='" + cartes[n] + ".png' width='400' />")
+  global cartes, n
+  n = n + 1
+  if n == 8:
+  	document['cartes'].style.display = 'inline'
+  	document['display'].style.display = 'none'
+  else:
+  	display1("<img src='" + cartes[n] + ".png' width='400' />")
 
 def cartes_obo_back():
 	global cartes, n
 	if n != 0:
 		n = n - 1
-		display("<img src='" + cartes[n] + ".png' width='400' />")
+		display1("<img src='" + cartes[n] + ".png' width='400' />")
 
 i = 0
 selected = []
