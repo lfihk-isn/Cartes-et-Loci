@@ -57,7 +57,7 @@ def cartes_select(ev):
 		if str(ev.target.dataid) not in selected:
 			selected.append(str(ev.target.dataid))
 			i = i + 1
-			document[ev.target.dataid + '_pos'].html = "<img src='" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' />"
+			document[ev.target.dataid + '_pos'].html = "<img src='" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:0.5' width='100%' />"
 			ev.target.style.opacity = '0.2'
 			ev.target.style.cursor = 'not-allowed'
 
