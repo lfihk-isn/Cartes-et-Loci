@@ -1,4 +1,4 @@
-<html>
+<html style="height:100%;">
 <head>
 	<meta charset="utf-8">
 	<!--Import materialize.css-->
@@ -31,8 +31,10 @@ def cartes_obo():
   global cartes, n
   n = n + 1
   if n == 8:
-  	document['cartes'].style.display = 'inline'
+  	document['cartes'].style.display = 'block'
   	document['display'].style.display = 'none'
+	document['button_left'].style.display = 'none'
+	document['button_right'].style.display = 'none'
   else:
   	display1("<img src='" + cartes[n] + ".png' width='400' />")
 
@@ -57,28 +59,32 @@ def cartes_select(ev):
 		if str(ev.target.dataid) not in selected:
 			selected.append(str(ev.target.dataid))
 			i = i + 1
-			document[ev.target.dataid + '_pos'].html = "<img src='" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:0.5' width='100%' />"
+			document[ev.target.dataid + '_pos'].html = "<img src='" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
 			ev.target.style.opacity = '0.2'
 			ev.target.style.cursor = 'not-allowed'
+	if i == 8:
+		document['validate'].style.display = 'block'
 
 
 def score():
 	global selected, cartes
-	for n1 in range(0,len(selected)):
-		document["score"].html = document["score"].html + selected[n1]
+	#for n1 in range(0,len(selected)):
+		#document["score"].html = document["score"].html + selected[n1]
 
-	document["score"].html = document["score"].html + '<br />'
+	#document["score"].html = document["score"].html + '<br />'
 
-	for n2 in range(0,len(cartes)):
-		document["score"].html = document["score"].html + cartes[n2]
+	#for n2 in range(0,len(cartes)):
+		#document["score"].html = document["score"].html + cartes[n2]
 
 	points = 0
 	for n3 in range(0,len(cartes)):
 		if selected[n3] == cartes[n3]:
 			points = points + 1
 
-	document["score"].html = document["score"].html + '<br />'
-	document["score"].html = document["score"].html + str(points)
+	document['validate'].style.display = 'none'
+	#document["score"].html = document["score"].html + '<br />'
+	document["score"].html = str(points) + document["score"].html
+	document['score'].style.display = 'block'
 
 
 cartes = ["C1", "CR", "CD", "CV", "CX", "C9", "C8", "C7"]
@@ -88,60 +94,70 @@ display1("<img src='" + cartes[0] + ".png' width='400' />")
 document['button_right'].bind('click',cartes_obo)
 document['button_left'].bind('click',cartes_obo_back)
 document['cartes'].bind('click',cartes_select)
-document['submit'].bind('click',score)
+document['validate'].bind('click',score)
 </script>
 
 </head>
 
-<body onload="brython()" style="background-color:white;padding:0px;margin:0px;">
+<body onload="brython()" style="background-color:white;padding:0px;margin:0px;height:100%;">
 
-  <div style="width:100%;padding:0px;margin:0px;">
-		<div id="display" style="text-align:center;"></div>
+	<div id="display" style="text-align:center;"></div>
     <div id="button_left" style="width:80px;position:absolute;top:50%;left:10px;"><a class="waves-effect waves-light btn"><i class="material-icons">keyboard_arrow_left</i></a></div>
-		<div id="button_right" style="width:80px;position:absolute;top:50%;right:10px;"><a class="waves-effect waves-light btn"><i class="material-icons">keyboard_arrow_right</i></a></div>
+	<div id="button_right" style="width:80px;position:absolute;top:50%;right:10px;"><a class="waves-effect waves-light btn"><i class="material-icons">keyboard_arrow_right</i></a></div>
+
+
+	<div id="cartes" style="display:none;background-color:red;height:100%;">
+
+		<table style="padding:10px;margin:0px;height:100%;width:100%;background-color:yellow;">
+			<tr style="min-height:50%;padding:10px;background-color:green;">
+				<td id='C1' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C1_pos' style='position:absolute;'></div><img dataid='C1' src='C1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%;'/></div></div></td>
+				<td id='CR' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CR_pos' style='position:absolute;'></div><img dataid='CR' src='CR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CD' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CD_pos' style='position:absolute;'></div><img dataid='CD' src='CD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CV' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CV_pos' style='position:absolute;'></div><img dataid='CV' src='CV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CX' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CX_pos' style='position:absolute;'></div><img dataid='CX' src='CX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C9' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C9_pos' style='position:absolute;'></div><img dataid='C9' src='C9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C8' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C8_pos' style='position:absolute;'></div><img dataid='C8' src='C8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C7' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C7_pos' style='position:absolute;'></div><img dataid='C7' src='C7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+			</tr>
+			<tr style="min-height:50%;padding:10px;background-color:green;">
+				<td id='C1' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C1_pos' style='position:absolute;'></div><img dataid='T1' src='T1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%;'/></div></div></td>
+				<td id='CR' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CR_pos' style='position:absolute;'></div><img dataid='TR' src='TR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CD' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CD_pos' style='position:absolute;'></div><img dataid='TD' src='TD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CV' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CV_pos' style='position:absolute;'></div><img dataid='TV' src='TV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CX' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CX_pos' style='position:absolute;'></div><img dataid='TX' src='TX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C9' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C9_pos' style='position:absolute;'></div><img dataid='T9' src='T9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C8' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C8_pos' style='position:absolute;'></div><img dataid='T8' src='T8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C7' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C7_pos' style='position:absolute;'></div><img dataid='T7' src='T7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+			</tr>
+			<tr style="min-height:50%;padding:10px;background-color:green;">
+				<td id='C1' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C1_pos' style='position:absolute;'></div><img dataid='K1' src='K1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%;'/></div></div></td>
+				<td id='CR' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CR_pos' style='position:absolute;'></div><img dataid='KR' src='KR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CD' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CD_pos' style='position:absolute;'></div><img dataid='KD' src='KD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CV' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CV_pos' style='position:absolute;'></div><img dataid='KV' src='KV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CX' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CX_pos' style='position:absolute;'></div><img dataid='KX' src='KX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C9' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C9_pos' style='position:absolute;'></div><img dataid='K9' src='K9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C8' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C8_pos' style='position:absolute;'></div><img dataid='K8' src='K8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C7' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C7_pos' style='position:absolute;'></div><img dataid='K7' src='K7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+			</tr>
+			<tr style="min-height:50%;padding:10px;background-color:green;">
+				<td id='C1' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C1_pos' style='position:absolute;'></div><img dataid='P1' src='P1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%;'/></div></div></td>
+				<td id='CR' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CR_pos' style='position:absolute;'></div><img dataid='PR' src='PR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CD' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CD_pos' style='position:absolute;'></div><img dataid='PD' src='PD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CV' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CV_pos' style='position:absolute;'></div><img dataid='PV' src='PV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='CX' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='CX_pos' style='position:absolute;'></div><img dataid='PX' src='PX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C9' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C9_pos' style='position:absolute;'></div><img dataid='P9' src='P9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C8' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C8_pos' style='position:absolute;'></div><img dataid='P8' src='P8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+				<td id='C7' style="background-color:silver;padding:0px;margin:0px;"><div style="position:relative;width:100%;height:100%;padding:5px;"><div style="height:100%;background-color:#f9f9f9;border-radius:4px;padding-top:20%;"><div id='C7_pos' style='position:absolute;'></div><img dataid='P7' src='P7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width='100%' /></div></div></td>
+			</tr>
+		</table>
+
 	</div>
 
-  <div id="cartes" style="display:none;padding:0px;margin:0px;">
-		<div id='C1' style='float:left;width:12.5%;height:25%;'><div id='C1_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C1' src='C1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CR' style='float:left;width:12.5%;height:25%;'><div id='CR_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CR' src='CR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CD' style='float:left;width:12.5%;height:25%;'><div id='CD_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CD' src='CD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CV' style='float:left;width:12.5%;height:25%;'><div id='CV_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CV' src='CV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CX' style='float:left;width:12.5%;height:25%;'><div id='CX_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CX' src='CX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C9' style='float:left;width:12.5%;height:25%;'><div id='C9_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C9' src='C9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C8' style='float:left;width:12.5%;height:25%;'><div id='C8_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C8' src='C8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C7' style='float:left;width:12.5%;height:25%;'><div id='C7_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C7' src='C7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C1' style='float:left;width:12.5%;height:25%;'><div id='C1_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C1' src='C1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CR' style='float:left;width:12.5%;height:25%;'><div id='CR_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CR' src='CR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CD' style='float:left;width:12.5%;height:25%;'><div id='CD_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CD' src='CD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CV' style='float:left;width:12.5%;height:25%;'><div id='CV_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CV' src='CV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CX' style='float:left;width:12.5%;height:25%;'><div id='CX_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CX' src='CX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C9' style='float:left;width:12.5%;height:25%;'><div id='C9_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C9' src='C9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C8' style='float:left;width:12.5%;height:25%;'><div id='C8_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C8' src='C8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C7' style='float:left;width:12.5%;height:25%;'><div id='C7_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C7' src='C7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C1' style='float:left;width:12.5%;height:25%;'><div id='C1_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C1' src='C1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CR' style='float:left;width:12.5%;height:25%;'><div id='CR_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CR' src='CR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CD' style='float:left;width:12.5%;height:25%;'><div id='CD_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CD' src='CD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CV' style='float:left;width:12.5%;height:25%;'><div id='CV_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CV' src='CV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CX' style='float:left;width:12.5%;height:25%;'><div id='CX_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CX' src='CX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C9' style='float:left;width:12.5%;height:25%;'><div id='C9_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C9' src='C9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C8' style='float:left;width:12.5%;height:25%;'><div id='C8_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C8' src='C8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C7' style='float:left;width:12.5%;height:25%;'><div id='C7_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C7' src='C7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C1' style='float:left;width:12.5%;height:25%;'><div id='C1_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C1' src='C1.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CR' style='float:left;width:12.5%;height:25%;'><div id='CR_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CR' src='CR.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CD' style='float:left;width:12.5%;height:25%;'><div id='CD_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CD' src='CD.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CV' style='float:left;width:12.5%;height:25%;'><div id='CV_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CV' src='CV.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='CX' style='float:left;width:12.5%;height:25%;'><div id='CX_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='CX' src='CX.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C9' style='float:left;width:12.5%;height:25%;'><div id='C9_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C9' src='C9.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C8' style='float:left;width:12.5%;height:25%;'><div id='C8_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C8' src='C8.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
-		<div id='C7' style='float:left;width:12.5%;height:25%;'><div id='C7_pos' style='position:absolute;width:12.5%;height:25%;'></div><img dataid='C7' src='C7.png' style='cursor:pointer;pointer-events:auto;opacity:1' width="70%" /></div>
 
-		<a id="submit" class="waves-effect waves-light btn"><i class="material-icons">check</i></a>
-	</div>
-
-
+	<div id="validate" class="waves-effect waves-light btn" style="display:none;position:absolute;top:50%;left:50%;"><i class="material-icons">check</i></div>
 
 	<div id="select" style='clear:both'></div>
-	<div id="score" style='clear:both'></div>
+	<div id="score" style='display:none;clear:both;position:absolute;top:50%;left:50%;width:200px;background-color:white;border-radius:4px;font-size:30px;font-weight:bold;'><a href="index.html" class="btn-floating red"><i class="material-icons">autorenew</i></a></div>
 
 	<!--
 	<div class="fixed-action-btn">
