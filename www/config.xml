@@ -4,17 +4,13 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.helloworld"
-        version   = "1.0.0">
+        version   = "1.0">
 
-    <name>Hello World</name>
+    <name>Cartes et Loci</name>
 
-    <description>
-        Hello World sample application that responds to the deviceready event.
-    </description>
+    <description>Cartes pour méthode des loci (palais de la mémoire)</description>
 
-    <author href="http://phonegap.com" email="support@phonegap.com">
-        PhoneGap Team
-    </author>
+    <author href="http://www.fis.edu.hk" email="labbal@lfis.edu.hk">Laurent Abbal et ses élèves</author>
 
     <!--
         If you do not want any permissions to be added to your app, add the
@@ -45,6 +41,7 @@
     <!-- Plugins -->
 
     <!-- Core plugins -->
+    <!--
     <plugin name="cordova-plugin-battery-status" />
     <plugin name="cordova-plugin-camera" />
     <plugin name="cordova-plugin-media-capture" />
@@ -63,6 +60,7 @@
     <plugin name="cordova-plugin-network-information" />
     <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-vibration" />
+    -->
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
