@@ -35,6 +35,10 @@
   font-feature-settings: 'liga';
 }
 
+.btn-floating.btn-large i {
+    line-height: 65px;
+}
+
 .button_l {width:80px;position:absolute;top:50%;left:10px;}
 .button_r {width:80px;position:absolute;top:50%;right:10px;}
 
