@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: 'bariol';
+  src: url('../fonts/Bariol_Bold.otf');
+}
+
+@font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
@@ -50,7 +55,7 @@
 
 .button_l {position:absolute;top:50%;left:0;margin-left:-6px;}
 .button_r {position:absolute;top:50%;right:0;margin-right:-6px;}
-.button_lr {line-height:4;height:75px;}
+.button_lr {line-height:3.2;height:75px;}
 
 .carte_obo_frame {width:100%;height:100%;padding:10px;background-color:#f9f9f9;text-align:center;}
 .carte_obo {max-width:100%;height:100%;}

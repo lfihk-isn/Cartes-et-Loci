@@ -34,6 +34,7 @@ n = 0
 def cartes_obo():
   global cartes, n
   n = n + 1
+
   if n == 4:
   	document['cartes'].style.display = 'block'
   	document['display'].style.display = 'none'
@@ -41,12 +42,18 @@ def cartes_obo():
 	document['button_right'].style.display = 'none'
   else:
   	display1("<div class='carte_obo_frame'><img src='images/" + cartes[n] + ".png' class='carte_obo' /></div>")
+	if n != 0:
+		document['button_left'].style.display = 'block'
+
 
 def cartes_obo_back():
 	global cartes, n
 	if n != 0:
 		n = n - 1
 		display1("<div class='carte_obo_frame'><img src='images/" + cartes[n] + ".png' class='carte_obo' /></div>")
+	if n == 0:
+		document['button_left'].style.display = 'none'
+
 
 i = 0
 selected = []
@@ -68,7 +75,7 @@ def cartes_select(ev):
 			ev.target.style.cursor = 'not-allowed'
 	if i == 8:
 		document['validate'].style.display = 'block'
-		document['cartes'].style.display = 'none'
+		document['cartes'].style.pointer = 'none'
 
 
 def score():
@@ -86,6 +93,7 @@ def score():
 		if selected[n3] == cartes[n3]:
 			points = points + 1
 
+		document['cartes'].style.display = 'none'
 	document['validate'].style.display = 'none'
 	#document["score"].html = document["score"].html + '<br />'
 	document["score"].html = str(points) + document["score"].html
@@ -107,8 +115,8 @@ document['display_score'].bind('click',score)
 <body onload="brython()" style="background-color:white;padding:0px;margin:0px;height:100%;">
 
 	<div id="display" style="text-align:center;"></div>
-  <div id="button_left" class="button_l"><a class="waves-effect waves-light btn button_lr blue-grey darken-3"><i class="material-icons">keyboard_arrow_left</i></a></div>
-	<div id="button_right" class="button_r"><a class="waves-effect waves-light btn button_lr blue-grey darken-3"><i class="material-icons">keyboard_arrow_right</i></a></div>
+  <div id="button_left" class="button_l" style="display:none;"><a class="waves-effect waves-light btn btn-large button_lr blue-grey darken-3"><i class="material-icons">keyboard_arrow_left</i></a></div>
+	<div id="button_right" class="button_r"><a class="waves-effect waves-light btn btn-large button_lr blue-grey darken-3"><i class="material-icons">keyboard_arrow_right</i></a></div>
 
 
 	<div id="cartes" class="cartes">
@@ -162,7 +170,7 @@ document['display_score'].bind('click',score)
 	<div id="validate" style="display:none;width:100%;position:absolute;top:50%;text-align:center;"><a id="back" class="btn-floating btn-large waves-effect waves-light  grey lighten-2" style="margin-right:30px;"><i class="material-icons">arrow_back</i></a><a id="display_score" class="btn-floating btn-large waves-effect waves-light green accent-4" style="margin-left:30px;"><i class="material-icons">check</i></a></div>
 
 	<div id="select" style='clear:both'></div>
-	<div id="score" style='display:none;clear:both;position:absolute;top:50%;left:50%;width:200px;background-color:white;border-radius:4px;font-size:30px;font-weight:bold;'><a href="index.html" class="btn-floating red"><i class="material-icons">autorenew</i></a></div>
+	<div id="score" style='display:none;padding-top:5%;font-family:bariol;width:100%;text-align:center;font-size:200px;font-weight:bold;'><br /><a href="index.html" class="btn-floating red"><i class="material-icons">autorenew</i></a></div>
 
 
 	<div class="fixed-action-btn">
