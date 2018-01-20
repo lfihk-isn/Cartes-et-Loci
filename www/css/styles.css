@@ -48,8 +48,12 @@
     line-height: 35px;
 }
 
-.button_l {width:80px;position:absolute;top:50%;left:10px;}
-.button_r {width:80px;position:absolute;top:50%;right:10px;}
+.button_l {position:absolute;top:50%;left:0;margin-left:-6px;}
+.button_r {position:absolute;top:50%;right:0;margin-right:-6px;}
+.button_lr {line-height:4;height:75px;}
+
+.carte_obo_frame {width:100%;height:100%;padding:10px;background-color:#f9f9f9;text-align:center;}
+.carte_obo {max-width:100%;height:100%;}
 
 .cartes {display:none;height:100%;padding:0px;margin:0px;}
 .cartes_table {padding:0px;margin:0px;height:100%;width:100%;}
