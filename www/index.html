@@ -120,7 +120,6 @@ document['back'].bind('click',back)
 <body onload="brython()" style="background-color:white;padding:0px;margin:0px;height:100%;">
 
 	<div id="cartes" class="cartes">
-
 		<table class="cartes_table">
 			<tr class="cartes_row">
 				<td id='C1' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C1_pos' class="cartes_selected"></div><img dataid='C1' src='images/C1.png' class='cartes_displayed' /></div></div></td>
@@ -163,7 +162,6 @@ document['back'].bind('click',back)
 				<td id='C7' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C7_pos' class="cartes_selected"></div><img dataid='P7' src='images/P7.png' class='cartes_displayed' /></div></div></td>
 			</tr>
 		</table>
-
 	</div>
 
 	<!-- Cartes une par une -->
@@ -181,24 +179,19 @@ document['back'].bind('click',back)
 		</div>
 	</div>
 
-	<!--
-	<div id="select" style='clear:both'></div>
--->
-
 	<!-- SCORE -->
 	<div id="score" style='display:none;padding-top:5%;font-family:bariol;width:100%;text-align:center;font-size:100px;font-weight:bold;'>
-		<br /><a href="index.html" class="btn-floating btn-large red darken-4"><i class="material-icons">autorenew</i></a>
+		<br /><a href="index.html" class="btn-floating btn-large red"><i class="material-icons">autorenew</i></a>
 	</div>
 
 	<!-- MENU -->
-	<div id="menu" class="fixed-action-btn" style="right:20px;bottom:20px;">
-		<a class="btn-floating red darken-4"><i class="large material-icons">layers</i></a>
+	<div id="menu" class="fixed-action-btn horizontal" style="right:20px;bottom:20px;">
+		<a class="btn-floating red"><i class="large material-icons">layers</i></a>
 		<ul>
 			<li><a href="index.html" class="btn-floating blue-grey darken-3"><i class="material-icons">autorenew</i></a></li>
 			<li><a href="about.html" class="btn-floating blue-grey darken-3"><i class="material-icons">help_outline</i></a></li>
 		</ul>
 	</div>
-
 
 	<!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
