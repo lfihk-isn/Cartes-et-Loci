@@ -119,11 +119,6 @@ document['back'].bind('click',back)
 
 <body onload="brython()" style="background-color:white;padding:0px;margin:0px;height:100%;">
 
-	<div id="display" style="text-align:center;"></div>
-  <div id="button_left" class="button_l" style="display:none;"><a class="waves-effect waves-light btn btn-large button_lr blue-grey darken-3"><i class="material-icons">keyboard_arrow_left</i></a></div>
-	<div id="button_right" class="button_r"><a class="waves-effect waves-light btn btn-large button_lr blue-grey darken-3"><i class="material-icons">keyboard_arrow_right</i></a></div>
-
-
 	<div id="cartes" class="cartes">
 
 		<table class="cartes_table">
@@ -171,27 +166,36 @@ document['back'].bind('click',back)
 
 	</div>
 
+	<!-- Cartes une par une -->
+	<div id="display" style="text-align:center;"></div>
 
+	<!-- boutons gauche - droite -->
+	<div id="button_left" class="button_l" style="display:none;"><a class="waves-effect waves-light btn btn-large button_lr blue-grey darken-3"><i class="material-icons">keyboard_arrow_left</i></a></div>
+	<div id="button_right" class="button_r"><a class="waves-effect waves-light btn btn-large button_lr blue-grey darken-3"><i class="material-icons">keyboard_arrow_right</i></a></div>
+
+	<!-- validation choix -->
 	<div id="validate" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background-color:white;opacity:0.9;z-index:10000;">
 		<div style="width:100%;position:absolute;opacity:none;top:50%;text-align:center;z-index:20000;">
-			<a id="back" class="btn-floating btn-large waves-effect waves-light  grey lighten-2" style="margin-right:30px;"><i class="material-icons">arrow_back</i></a>
-			<a id="display_score" class="btn-floating btn-large waves-effect waves-light green accent-4" style="margin-left:30px;"><i class="material-icons">check</i></a>
+			<a id="back" class="btn-floating btn-large waves-effect waves-light blue-grey darken-3" style="margin-right:30px;"><i class="material-icons">arrow_back</i></a>
+			<a id="display_score" class="btn-floating btn-large waves-effect waves-light green darken-3" style="margin-left:30px;"><i class="material-icons">check</i></a>
 		</div>
 	</div>
 
+	<!--
 	<div id="select" style='clear:both'></div>
+-->
 
 	<!-- SCORE -->
-	<div id="score" style='display:none;padding-top:5%;font-family:bariol;width:100%;text-align:center;font-size:100px;font-weight:bold;'><br /><a href="index.html" class="btn-floating btn-large red"><i class="material-icons">autorenew</i></a></div>
+	<div id="score" style='display:none;padding-top:5%;font-family:bariol;width:100%;text-align:center;font-size:100px;font-weight:bold;'>
+		<br /><a href="index.html" class="btn-floating btn-large red darken-4"><i class="material-icons">autorenew</i></a>
+	</div>
 
 	<!-- MENU -->
 	<div id="menu" class="fixed-action-btn" style="right:20px;bottom:20px;">
-		<a class="btn-floating red"><i class="large material-icons">layers</i></a>
+		<a class="btn-floating red darken-4"><i class="large material-icons">layers</i></a>
 		<ul>
-			<li><a class="btn-floating red"><i class="material-icons">autorenew</i></a></li>
-			<li><a class="btn-floating yellow darken-1"><i class="material-icons">help</i></a></li>
-			<li><a class="btn-floating green"><i class="material-icons">help_outline</i></a></li>
-			<li><a class="btn-floating blue"><i class="material-icons">home</i></a></li>
+			<li><a href="index.html" class="btn-floating blue-grey darken-3"><i class="material-icons">autorenew</i></a></li>
+			<li><a href="about.html" class="btn-floating blue-grey darken-3"><i class="material-icons">help_outline</i></a></li>
 		</ul>
 	</div>
 
