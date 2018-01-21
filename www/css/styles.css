@@ -53,6 +53,11 @@
     line-height: 35px;
 }
 
+.fixed-action-btn.horizontal ul li {
+    display: inline-block;
+    margin: 0px 15px 0 0;
+}
+
 .button_l {position:absolute;top:50%;left:0;margin-left:-6px;}
 .button_r {position:absolute;top:50%;right:0;margin-right:-6px;}
 .button_lr {line-height:3.2;height:75px;}
