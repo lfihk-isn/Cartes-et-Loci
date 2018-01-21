@@ -59,6 +59,7 @@ i = 0
 selected = []
 def cartes_select(ev):
 	global i, select
+
 	if i != 0 and (str(ev.target.dataid) == selected[-1]):
 		#unselect the last selection
 		document[ev.target.dataid + '_pos'].clear()
@@ -68,15 +69,17 @@ def cartes_select(ev):
 		i = i - 1
 	else:
 		if str(ev.target.dataid) not in selected:
+			if i !=0:
+				document[selected[-1] + '_pos'].html = "<div style='position:absolute;top:5;right:5;color:silver;'><i class='material-icons'>lock</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
 			selected.append(str(ev.target.dataid))
 			i = i + 1
-			document[ev.target.dataid + '_pos'].html = "<img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
+			document[ev.target.dataid + '_pos'].html = "<div style='position:absolute;top:5;right:5;color:#689f38 ;'><i class='material-icons'>clear</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
 			ev.target.style.opacity = '0.2'
-			ev.target.style.cursor = 'not-allowed'
 	if i == 8:
 		document['validate'].style.display = 'block'
-		document['cartes'].style.pointer = 'none'
 
+def back():
+	document['validate'].style.display = 'none'
 
 def score():
 	global selected, cartes
@@ -108,6 +111,7 @@ document['button_right'].bind('click',cartes_obo)
 document['button_left'].bind('click',cartes_obo_back)
 document['cartes'].bind('click',cartes_select)
 document['display_score'].bind('click',score)
+document['back'].bind('click',back)
 </script>
 
 </head>
@@ -167,19 +171,19 @@ document['display_score'].bind('click',score)
 	</div>
 
 
-	<div id="validate" style="display:none;width:100%;position:absolute;top:50%;text-align:center;"><a id="back" class="btn-floating btn-large waves-effect waves-light  grey lighten-2" style="margin-right:30px;"><i class="material-icons">arrow_back</i></a><a id="display_score" class="btn-floating btn-large waves-effect waves-light green accent-4" style="margin-left:30px;"><i class="material-icons">check</i></a></div>
+	<div id="validate" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background-color:white;opacity:0.8;z-index:10000;"><div style="width:100%;position:absolute;opacity:1.3;top:50%;text-align:center;"><a id="back" class="btn-floating btn-large waves-effect waves-light  grey lighten-2" style="margin-right:30px;"><i class="material-icons">arrow_back</i></a><a id="display_score" class="btn-floating btn-large waves-effect waves-light green accent-4" style="margin-left:30px;"><i class="material-icons">check</i></a></div></div>
 
 	<div id="select" style='clear:both'></div>
 	<div id="score" style='display:none;padding-top:5%;font-family:bariol;width:100%;text-align:center;font-size:200px;font-weight:bold;'><br /><a href="index.html" class="btn-floating red"><i class="material-icons">autorenew</i></a></div>
 
 
-	<div class="fixed-action-btn">
-		<a class="btn-floating btn-large red"><i class="large material-icons">mode_edit</i></a>
+	<div id="menu" class="fixed-action-btn" style="right:4px;bottom:4px;">
+		<a class="btn-floating red"><i class="large material-icons">layers</i></a>
 		<ul>
-			<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-			<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-			<li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-			<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+			<li><a class="btn-floating red"><i class="material-icons">autorenew</i></a></li>
+			<li><a class="btn-floating yellow darken-1"><i class="material-icons">help</i></a></li>
+			<li><a class="btn-floating green"><i class="material-icons">help_outline</i></a></li>
+			<li><a class="btn-floating blue"><i class="material-icons">home</i></a></li>
 		</ul>
 	</div>
 
