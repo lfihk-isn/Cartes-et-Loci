@@ -70,10 +70,10 @@ def cartes_select(ev):
 	else:
 		if str(ev.target.dataid) not in selected:
 			if i !=0:
-				document[selected[-1] + '_pos'].html = "<div style='position:absolute;top:5;right:5;color:silver;'><i class='material-icons' style='font-size:80%;'>lock</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
+				document[selected[-1] + '_pos'].html = "<div style='position:absolute;top:5;right:5;color:silver;'><i class='material-icons' style='font-size:70%;'>lock</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
 			selected.append(str(ev.target.dataid))
 			i = i + 1
-			document[ev.target.dataid + '_pos'].html = "<div style='position:absolute;top:5;right:5;color:#689f38;'><i class='material-icons' style='font-size:80%;'>clear</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
+			document[ev.target.dataid + '_pos'].html = "<div style='position:absolute;top:5;right:5;color:#689f38;'><i class='material-icons' style='font-size:70%;'>clear</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
 			ev.target.style.opacity = '0.2'
 	if i == 8:
 		document['validate'].style.display = 'block'
@@ -172,7 +172,7 @@ document['back'].bind('click',back)
 
 
 	<div id="validate" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background-color:white;opacity:0.9;z-index:10000;">
-		<div style="width:100%;position:absolute;opacity:1.3;top:50%;text-align:center;">
+		<div style="width:100%;position:absolute;opacity:none;top:50%;text-align:center;z-index:20000;">
 			<a id="back" class="btn-floating btn-large waves-effect waves-light  grey lighten-2" style="margin-right:30px;"><i class="material-icons">arrow_back</i></a>
 			<a id="display_score" class="btn-floating btn-large waves-effect waves-light green accent-4" style="margin-left:30px;"><i class="material-icons">check</i></a>
 		</div>
