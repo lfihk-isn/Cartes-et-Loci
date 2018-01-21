@@ -60,7 +60,7 @@
 .carte_obo_frame {width:100%;height:100%;padding:10px;background-color:#f9f9f9;text-align:center;}
 .carte_obo {max-width:100%;height:100%;}
 
-.cartes {display:none;height:100%;padding:20px 60px 60px 20px;margin:0px;}
+.cartes {display:none;height:100%;padding:20px 80px 80px 20px;margin:0px;}
 .cartes_table {padding:0px;margin:0px;height:100%;width:100%;}
 .cartes_row {min-height:25%;padding:0px;}
 .cartes_col {padding:0px;margin:0px;}

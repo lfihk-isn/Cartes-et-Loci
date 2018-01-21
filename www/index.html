@@ -70,10 +70,10 @@ def cartes_select(ev):
 	else:
 		if str(ev.target.dataid) not in selected:
 			if i !=0:
-				document[selected[-1] + '_pos'].html = "<div style='position:absolute;top:5;right:5;color:silver;'><i class='material-icons' style='font-size:70%;'>lock</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
+				document[selected[-1] + '_pos'].html = "<div style='position:absolute;top:4;right:4;color:silver;'><i class='material-icons' style='font-size:60%;'>lock</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
 			selected.append(str(ev.target.dataid))
 			i = i + 1
-			document[ev.target.dataid + '_pos'].html = "<div style='position:absolute;top:5;right:5;color:#689f38;'><i class='material-icons' style='font-size:70%;'>clear</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
+			document[ev.target.dataid + '_pos'].html = "<div style='position:absolute;top:4;right:4;color:#689f38;'><i class='material-icons' style='font-size:60%;'>clear</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
 			ev.target.style.opacity = '0.2'
 	if i == 8:
 		document['validate'].style.display = 'block'
@@ -184,7 +184,7 @@ document['back'].bind('click',back)
 	<div id="score" style='display:none;padding-top:5%;font-family:bariol;width:100%;text-align:center;font-size:100px;font-weight:bold;'><br /><a href="index.html" class="btn-floating btn-large red"><i class="material-icons">autorenew</i></a></div>
 
 	<!-- MENU -->
-	<div id="menu" class="fixed-action-btn" style="right:10px;bottom:10px;">
+	<div id="menu" class="fixed-action-btn" style="right:20px;bottom:20px;">
 		<a class="btn-floating red"><i class="large material-icons">layers</i></a>
 		<ul>
 			<li><a class="btn-floating red"><i class="material-icons">autorenew</i></a></li>
