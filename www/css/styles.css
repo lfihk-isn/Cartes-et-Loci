@@ -53,13 +53,8 @@
     line-height: 35px;
 }
 
-.fixed-action-btn.horizontal ul li {
-    display: inline-block;
-    margin: 0px 15px 0 0;
-}
-
-.button_l {position:absolute;top:50%;left:0;margin-left:-6px;}
-.button_r {position:absolute;top:50%;right:0;margin-right:-6px;}
+.button_l {position:absolute;top:10%;left:0;margin-left:-6px;}
+.button_r {position:absolute;top:10%;right:0;margin-right:-6px;}
 .button_lr {line-height:3.2;height:75px;}
 
 .carte_obo_frame {width:100%;height:100%;padding:10px;background-color:#f9f9f9;text-align:center;}
