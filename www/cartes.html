@@ -35,7 +35,7 @@ def cartes_obo():
   global cartes, n
   n = n + 1
 
-  if n == 4:
+  if n == 32:
   	document['cartes'].style.display = 'block'
   	document['display'].style.display = 'none'
 	document['button_left'].style.display = 'none'
@@ -76,7 +76,7 @@ def cartes_select(ev):
 			i = i + 1
 			document[ev.target.dataid + '_pos'].html = "<div style='position:absolute;top:4;right:4;color:#689f38;'><i class='material-icons' style='font-size:60%;'>clear</i></div><img src='images/" + str(i) + ".png' style='cursor:pointer;pointer-events:auto;opacity:1;width:100%;' />"
 			ev.target.style.opacity = '0.2'
-	if i == 8:
+	if i == 32:
 		document['validate'].style.display = 'block'
 
 def back():
@@ -104,7 +104,7 @@ def score():
 	document['score'].style.display = 'block'
 
 
-cartes = ["C1", "CR", "CD", "CV", "CX", "C9", "C8", "C7"]
+cartes = ["C1", "CR", "CD", "CV", "CX", "C9", "C8", "C7", "T1", "TR", "TD", "TV", "TX", "T9", "T8", "T7", "K1", "KR", "KD", "KV", "KX", "K9", "K8", "K7", "P1", "PR", "PD", "PV", "PX", "P9", "P8", "P7"]
 random.shuffle(cartes)
 display1("<div class='carte_obo_frame'><img src='images/" + cartes[0] + ".png' class='carte_obo' /></div>")
 
@@ -132,34 +132,34 @@ document['back'].bind('click',back)
 				<td id='C7' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C7_pos' class="cartes_selected"></div><img dataid='C7' src='images/C7.png' class='cartes_displayed' /></div></div></td>
 			</tr>
 			<tr class="cartes_row">
-				<td id='C1' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C1_pos' class="cartes_selected"></div><img dataid='T1' src='images/T1.png' class='cartes_displayed' /></div></div></td>
-				<td id='CR' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CR_pos' class="cartes_selected"></div><img dataid='TR' src='images/TR.png' class='cartes_displayed' /></div></div></td>
-				<td id='CD' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CD_pos' class="cartes_selected"></div><img dataid='TD' src='images/TD.png' class='cartes_displayed' /></div></div></td>
-				<td id='CV' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CV_pos' class="cartes_selected"></div><img dataid='TV' src='images/TV.png' class='cartes_displayed' /></div></div></td>
-				<td id='CX' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CX_pos' class="cartes_selected"></div><img dataid='TX' src='images/TX.png' class='cartes_displayed' /></div></div></td>
-				<td id='C9' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C9_pos' class="cartes_selected"></div><img dataid='T9' src='images/T9.png' class='cartes_displayed' /></div></div></td>
-				<td id='C8' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C8_pos' class="cartes_selected"></div><img dataid='T8' src='images/T8.png' class='cartes_displayed' /></div></div></td>
-				<td id='C7' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C7_pos' class="cartes_selected"></div><img dataid='T7' src='images/T7.png' class='cartes_displayed' /></div></div></td>
+				<td id='T1' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='T1_pos' class="cartes_selected"></div><img dataid='T1' src='images/T1.png' class='cartes_displayed' /></div></div></td>
+				<td id='TR' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='TR_pos' class="cartes_selected"></div><img dataid='TR' src='images/TR.png' class='cartes_displayed' /></div></div></td>
+				<td id='TD' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='TD_pos' class="cartes_selected"></div><img dataid='TD' src='images/TD.png' class='cartes_displayed' /></div></div></td>
+				<td id='TV' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='TV_pos' class="cartes_selected"></div><img dataid='TV' src='images/TV.png' class='cartes_displayed' /></div></div></td>
+				<td id='TX' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='TX_pos' class="cartes_selected"></div><img dataid='TX' src='images/TX.png' class='cartes_displayed' /></div></div></td>
+				<td id='T9' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='T9_pos' class="cartes_selected"></div><img dataid='T9' src='images/T9.png' class='cartes_displayed' /></div></div></td>
+				<td id='T8' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='T8_pos' class="cartes_selected"></div><img dataid='T8' src='images/T8.png' class='cartes_displayed' /></div></div></td>
+				<td id='T7' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='T7_pos' class="cartes_selected"></div><img dataid='T7' src='images/T7.png' class='cartes_displayed' /></div></div></td>
 			</tr>
 			<tr class="cartes_row">
-				<td id='C1' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C1_pos' class="cartes_selected"></div><img dataid='K1' src='images/K1.png' class='cartes_displayed' /></div></div></td>
-				<td id='CR' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CR_pos' class="cartes_selected"></div><img dataid='KR' src='images/KR.png' class='cartes_displayed' /></div></div></td>
-				<td id='CD' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CD_pos' class="cartes_selected"></div><img dataid='KD' src='images/KD.png' class='cartes_displayed' /></div></div></td>
-				<td id='CV' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CV_pos' class="cartes_selected"></div><img dataid='KV' src='images/KV.png' class='cartes_displayed' /></div></div></td>
-				<td id='CX' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CX_pos' class="cartes_selected"></div><img dataid='KX' src='images/KX.png' class='cartes_displayed' /></div></div></td>
-				<td id='C9' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C9_pos' class="cartes_selected"></div><img dataid='K9' src='images/K9.png' class='cartes_displayed' /></div></div></td>
-				<td id='C8' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C8_pos' class="cartes_selected"></div><img dataid='K8' src='images/K8.png' class='cartes_displayed' /></div></div></td>
-				<td id='C7' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C7_pos' class="cartes_selected"></div><img dataid='K7' src='images/K7.png' class='cartes_displayed' /></div></div></td>
+				<td id='K1' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='K1_pos' class="cartes_selected"></div><img dataid='K1' src='images/K1.png' class='cartes_displayed' /></div></div></td>
+				<td id='KR' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='KR_pos' class="cartes_selected"></div><img dataid='KR' src='images/KR.png' class='cartes_displayed' /></div></div></td>
+				<td id='KD' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='KD_pos' class="cartes_selected"></div><img dataid='KD' src='images/KD.png' class='cartes_displayed' /></div></div></td>
+				<td id='KV' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='KV_pos' class="cartes_selected"></div><img dataid='KV' src='images/KV.png' class='cartes_displayed' /></div></div></td>
+				<td id='KX' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='KX_pos' class="cartes_selected"></div><img dataid='KX' src='images/KX.png' class='cartes_displayed' /></div></div></td>
+				<td id='K9' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='K9_pos' class="cartes_selected"></div><img dataid='K9' src='images/K9.png' class='cartes_displayed' /></div></div></td>
+				<td id='K8' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='K8_pos' class="cartes_selected"></div><img dataid='K8' src='images/K8.png' class='cartes_displayed' /></div></div></td>
+				<td id='K7' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='K7_pos' class="cartes_selected"></div><img dataid='K7' src='images/K7.png' class='cartes_displayed' /></div></div></td>
 			</tr>
 			<tr class="cartes_row">
-				<td id='C1' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C1_pos' class="cartes_selected"></div><img dataid='P1' src='images/P1.png' class='cartes_displayed' /></div></div></td>
-				<td id='CR' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CR_pos' class="cartes_selected"></div><img dataid='PR' src='images/PR.png' class='cartes_displayed' /></div></div></td>
-				<td id='CD' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CD_pos' class="cartes_selected"></div><img dataid='PD' src='images/PD.png' class='cartes_displayed' /></div></div></td>
-				<td id='CV' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CV_pos' class="cartes_selected"></div><img dataid='PV' src='images/PV.png' class='cartes_displayed' /></div></div></td>
-				<td id='CX' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='CX_pos' class="cartes_selected"></div><img dataid='PX' src='images/PX.png' class='cartes_displayed' /></div></div></td>
-				<td id='C9' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C9_pos' class="cartes_selected"></div><img dataid='P9' src='images/P9.png' class='cartes_displayed' /></div></div></td>
-				<td id='C8' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C8_pos' class="cartes_selected"></div><img dataid='P8' src='images/P8.png' class='cartes_displayed' /></div></div></td>
-				<td id='C7' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='C7_pos' class="cartes_selected"></div><img dataid='P7' src='images/P7.png' class='cartes_displayed' /></div></div></td>
+				<td id='P1' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='P1_pos' class="cartes_selected"></div><img dataid='P1' src='images/P1.png' class='cartes_displayed' /></div></div></td>
+				<td id='PR' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='PR_pos' class="cartes_selected"></div><img dataid='PR' src='images/PR.png' class='cartes_displayed' /></div></div></td>
+				<td id='PD' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='PD_pos' class="cartes_selected"></div><img dataid='PD' src='images/PD.png' class='cartes_displayed' /></div></div></td>
+				<td id='PV' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='PV_pos' class="cartes_selected"></div><img dataid='PV' src='images/PV.png' class='cartes_displayed' /></div></div></td>
+				<td id='PX' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='PX_pos' class="cartes_selected"></div><img dataid='PX' src='images/PX.png' class='cartes_displayed' /></div></div></td>
+				<td id='P9' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='P9_pos' class="cartes_selected"></div><img dataid='P9' src='images/P9.png' class='cartes_displayed' /></div></div></td>
+				<td id='P8' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='P8_pos' class="cartes_selected"></div><img dataid='P8' src='images/P8.png' class='cartes_displayed' /></div></div></td>
+				<td id='P7' class="cartes_col"><div class="cartes_frame"><div class="cartes_bg"><div id='P7_pos' class="cartes_selected"></div><img dataid='P7' src='images/P7.png' class='cartes_displayed' /></div></div></td>
 			</tr>
 		</table>
 	</div>
