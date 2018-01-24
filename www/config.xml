@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.helloworld"
+        id        = "hk.edu.lfis.cartesetloci"
         version   = "1.0">
 
     <name>Cartes et Loci</name>
@@ -11,6 +11,16 @@
     <description>Cartes pour méthode des loci (palais de la mémoire)</description>
 
     <author href="http://www.fis.edu.hk" email="labbal@lfis.edu.hk">Laurent Abbal et ses élèves</author>
+
+    <!--IOS release version-->
+  	<config-file platform="ios" parent="CFBundleShortVersionString">
+  	<string>1.0</string>
+  	</config-file>
+
+  	<!--IOS build number-->
+  	<config-file platform="ios" parent="CFBundleVersion">
+  	<string>1.0</string>
+  	</config-file>
 
     <!--
         If you do not want any permissions to be added to your app, add the
